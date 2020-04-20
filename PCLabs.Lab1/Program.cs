@@ -43,13 +43,13 @@ namespace PCLabs.Lab1
             Thread t1 = new Thread(new ThreadStart(() =>
             {
                 MA = Func1(D, B, MD, MT, MZ, ME, a);
-                CustomMath.Print(MA);
+                //CustomMath.Print(MA);
             }));
 
             Thread t2 = new Thread(new ThreadStart(() =>
             {
                 A = Func2(Z, D, MT, B);
-                CustomMath.Print(A);
+                //CustomMath.Print(A);
             }));
 
             t1.Start();

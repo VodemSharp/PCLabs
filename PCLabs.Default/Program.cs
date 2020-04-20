@@ -3,9 +3,8 @@ using PCLabs.Helpers;
 using System;
 using System.Diagnostics;
 using System.IO;
-using System.Threading;
 
-namespace PCLabs.Lab2
+namespace PCLabs.Default
 {
     class Program
     {
@@ -40,36 +39,14 @@ namespace PCLabs.Lab2
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            object locker = new object { };
+            MA = Func1(D, B, MD, MT, MZ, ME, a);
+            A = Func2(Z, D, MT, B);
 
-            Thread t1 = new Thread(new ThreadStart(() =>
-            {
-                MA = Func1(D, B, MD, MT, MZ, ME, a);
-
-                //lock (locker)
-                //{
-                //    //HelperMath.Print(MA);
-                //}
-            }));
-
-            Thread t2 = new Thread(new ThreadStart(() =>
-            {
-                A = Func2(Z, D, MT, B);
-
-                //lock (locker)
-                //{
-                //    //HelperMath.Print(A);
-                //}
-            }));
-
-            t1.Start();
-            t2.Start();
-
-            t1.Join();
-            t2.Join();
+            CustomMath.Print(MA);
+            CustomMath.Print(A);
 
             stopwatch.Stop();
-            Console.WriteLine($"Lab 2: {stopwatch.ElapsedMilliseconds} ms");
+            Console.WriteLine($"Default: {stopwatch.ElapsedMilliseconds} ms");
         }
     }
 }

@@ -75,7 +75,6 @@ namespace PCLabs.Lab1
             Console.WriteLine();
         }
 
-
         #endregion
 
         #region Matrix
