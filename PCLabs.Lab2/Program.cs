@@ -46,20 +46,20 @@ namespace PCLabs.Lab2
             {
                 MA = Func1(D, B, MD, MT, MZ, ME, a);
 
-                //lock (locker)
-                //{
-                //    //HelperMath.Print(MA);
-                //}
+                lock (locker)
+                {
+                    //HelperMath.Print(MA);
+                }
             }));
 
             Thread t2 = new Thread(new ThreadStart(() =>
             {
                 A = Func2(Z, D, MT, B);
 
-                //lock (locker)
-                //{
-                //    //HelperMath.Print(A);
-                //}
+                lock (locker)
+                {
+                    //HelperMath.Print(A);
+                }
             }));
 
             t1.Start();

@@ -90,7 +90,7 @@ namespace PCLabs.Lab5
                 foreach (Action item in queue)
                 {
                     item.Invoke();
-
+            
                     if (countPrints == ++count) break;
                 }
             }

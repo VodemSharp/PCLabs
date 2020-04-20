@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using PCLabs.Helpers;
+using System.Threading.Tasks;
 
 namespace PCLabs.Lab6
 {
@@ -12,7 +13,7 @@ namespace PCLabs.Lab6
 
             Parallel.For(0, va.Length, (i) =>
             {
-                vc[i] = va[i] + vb[i];
+                vc[i] = HelperMath.KahanSum(va[i], vb[i]);
             });
 
             return vc;
@@ -48,7 +49,7 @@ namespace PCLabs.Lab6
                     mc[i, j] = 0;
                     for (int k = 0; k < ma.GetLength(1); k++)
                     {
-                        mc[i, j] += ma[i, k] * mb[k, j];
+                        mc[i, j] = HelperMath.KahanSum(mc[i, j], ma[i, k] * mb[k, j]);
                     }
                 });
             });
@@ -69,7 +70,7 @@ namespace PCLabs.Lab6
 
                 Parallel.For(0, cols, (j) =>
                 {
-                    vb[i] += ma[i, j] * va[j];
+                    vb[i] = HelperMath.KahanSum(vb[i], ma[i, j] * va[j]);
                 });
             });
 
@@ -105,7 +106,7 @@ namespace PCLabs.Lab6
             {
                 Parallel.For(0, cols, (j) =>
                 {
-                    mc[i, j] = ma[i, j] - mb[i, j];
+                    mc[i, j] = HelperMath.KahanSum(ma[i, j], -mb[i, j]);
                 });
             });
 

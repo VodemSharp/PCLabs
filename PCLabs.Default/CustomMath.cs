@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PCLabs.Helpers;
+using System;
 
 namespace PCLabs.Default
 {
@@ -42,7 +43,7 @@ namespace PCLabs.Default
 
             for (int i = 0; i < va.Length; i++)
             {
-                vc[i] = va[i] + vb[i];
+                vc[i] = HelperMath.KahanSum(va[i], vb[i]);
             }
 
             return vc;
@@ -90,7 +91,7 @@ namespace PCLabs.Default
                     mc[i, j] = 0;
                     for (int k = 0; k < ma.GetLength(1); k++)
                     {
-                        mc[i, j] += ma[i, k] * mb[k, j];
+                        mc[i, j] = HelperMath.KahanSum(mc[i, j], ma[i, k] * mb[k, j]);
                     }
                 }
             }
@@ -111,7 +112,7 @@ namespace PCLabs.Default
 
                 for (int j = 0; j < cols; j++)
                 {
-                    vb[i] += ma[i, j] * va[j];
+                    vb[i] = HelperMath.KahanSum(vb[i], ma[i, j] * va[j]);
                 }
             }
 
@@ -147,7 +148,7 @@ namespace PCLabs.Default
             {
                 for (int j = 0; j < cols; j++)
                 {
-                    mc[i, j] = ma[i, j] - mb[i, j];
+                    mc[i, j] = HelperMath.KahanSum(ma[i, j], -mb[i, j]);
                 }
             }
 

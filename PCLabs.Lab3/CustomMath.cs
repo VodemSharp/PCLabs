@@ -1,13 +1,12 @@
-﻿using System;
+﻿using PCLabs.Helpers;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using System.Threading;
 
 namespace PCLabs.Lab3
 {
     public static partial class CustomMath
     {
-        private static readonly int tCount = 5;
+        private static readonly int tCount = 4;
 
         #region Vector
 
@@ -24,7 +23,7 @@ namespace PCLabs.Lab3
                 {
                     for (int i = (int)tI * va.Length / tCount; i < ((int)tI + 1) * va.Length / tCount; i++)
                     {
-                        vc[i] = va[i] + vb[i];
+                        vc[i] = HelperMath.KahanSum(va[i], vb[i]);
                     }
 
                     resetEvent.Set();
@@ -90,7 +89,7 @@ namespace PCLabs.Lab3
                             mc[i, j] = 0;
                             for (int k = 0; k < ma.GetLength(1); k++)
                             {
-                                mc[i, j] += ma[i, k] * mb[k, j];
+                                mc[i, j] = HelperMath.KahanSum(mc[i, j], ma[i, k] * mb[k, j]);
                             }
                         }
                     }
@@ -126,7 +125,7 @@ namespace PCLabs.Lab3
 
                         for (int j = 0; j < cols; j++)
                         {
-                            vb[i] += ma[i, j] * va[j];
+                            vb[i] = HelperMath.KahanSum(vb[i], ma[i, j] * va[j]);
                         }
                     }
 
@@ -192,7 +191,7 @@ namespace PCLabs.Lab3
                     {
                         for (int j = 0; j < cols; j++)
                         {
-                            mc[i, j] = ma[i, j] - mb[i, j];
+                            mc[i, j] = HelperMath.KahanSum(ma[i, j], -mb[i, j]);
                         }
                     }
 

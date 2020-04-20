@@ -8,7 +8,7 @@ namespace PCLabs.Lab1
 {
     public static partial class CustomMath
     {
-        private static readonly int tCount = 5;
+        private static readonly int tCount = 4;
 
         #region Vector
 
@@ -164,7 +164,7 @@ namespace PCLabs.Lab1
                     {
                         for (int j = 0; j < cols; j++)
                         {
-                            mb[i, j] = HelperMath.KahanSum(mb[i, j], ma[i, j] * a);
+                            mb[i, j] = ma[i, j] * a;
                         }
                     }
                 }));
@@ -195,7 +195,7 @@ namespace PCLabs.Lab1
                     {
                         for (int j = 0; j < cols; j++)
                         {
-                            mc[i, j] = HelperMath.KahanSum(mc[i, j], ma[i, j] - mb[i, j]);
+                            mc[i, j] = HelperMath.KahanSum(ma[i, j], -mb[i, j]);
                         }
                     }
                 }));

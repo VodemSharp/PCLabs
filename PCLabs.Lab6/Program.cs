@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using PCLabs.Helpers;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
@@ -76,7 +75,7 @@ namespace PCLabs.Lab6
                 foreach (Action item in queue)
                 {
                     item.Invoke();
-
+            
                     if (countPrints == ++count) break;
                 }
             }

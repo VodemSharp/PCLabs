@@ -52,7 +52,7 @@ namespace PCLabs.Lab3
 
                 lock(locker)
                 {
-                    //HelperMath.Print(MA);
+                    HelperMath.Print(MA);
                 }
 
                 resetEvent.Set();
@@ -68,7 +68,7 @@ namespace PCLabs.Lab3
 
                 lock (locker)
                 {
-                    //HelperMath.Print(A);
+                    HelperMath.Print(A);
                 }
 
                 resetEvent2.Set();

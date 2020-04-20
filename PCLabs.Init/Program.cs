@@ -8,7 +8,7 @@ namespace PCLabs.Init
     {
         static void Main(string[] args)
         {
-            int size = 500;
+            int size = 1000;
 
             double a;
             double[] D, B, Z;
